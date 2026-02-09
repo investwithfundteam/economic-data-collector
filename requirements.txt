@@ -1,0 +1,12 @@
+# 코어 의존성
+pandas>=2.0.0
+python-dotenv>=1.0.0
+openpyxl>=3.1.0
+
+# API 클라이언트
+fredapi>=0.5.0
+requests>=2.31.0
+
+# 시각화 & 대시보드
+streamlit>=1.30.0
+plotly>=5.18.0
