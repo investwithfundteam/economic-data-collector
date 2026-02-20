@@ -70,7 +70,7 @@ def get_category_indicators(
     Returns:
         해당 카테고리의 지표만 포함하는 딕셔너리
     """
-    if category_name == "전체":
+    if category_name == "All":
         return all_indicators
     
     category_indicators = category_dict.get(category_name, {})

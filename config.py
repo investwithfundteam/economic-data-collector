@@ -1,63 +1,110 @@
-"""대시보드 설정 상수
-
-모든 하드코딩된 값과 반복되는 설정을 중앙화하여 관리합니다.
-"""
+"""Dashboard configuration constants."""
 from typing import Final
 
 # ============================================================
-# 차트 설정
+# Chart Configuration
 # ============================================================
 
 CHART_HEIGHT: Final[int] = 400
-"""기본 차트 높이 (픽셀)"""
 
 CHART_COLORS: Final[list[str]] = [
-    '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
-    '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
+    '#F3A950',  # Orange (Primary)
+    '#E25454',  # Red
+    '#404040',  # Dark Gray
+    '#FFD559',  # Gold
+    '#240F33',  # Dark Purple
+    '#EB8149',  # Deep Orange
+    '#7F7F7F',  # Medium Gray
+    '#0D0D0D',  # Near Black
+    '#D9D9D9',  # Light Gray
+    '#262626',  # Darker Gray
 ]
-"""차트에 사용되는 색상 팔레트"""
 
 # ============================================================
-# 분석 설정
+# Analysis Configuration
 # ============================================================
 
 MAX_LAG_MONTHS: Final[int] = 24
-"""상관관계 분석 시 최대 시차 (개월)"""
-
 MIN_SAMPLES_FOR_CORRELATION: Final[int] = 3
-"""상관계수 계산에 필요한 최소 샘플 수"""
 
 # ============================================================
-# 데이터 변환 옵션
+# Data Transform Options
 # ============================================================
 
 TRANSFORM_OPTIONS: Final[list[str]] = [
-    "원 데이터",
-    "지수화 (기준=100)",
-    "MoM (전월 대비)",
-    "QoQ (전분기 대비)",
-    "YoY (전년 동기 대비)"
+    "Raw Data",
+    "Indexed (Base=100)",
+    "MoM",
+    "QoQ",
+    "YoY",
 ]
-"""사용 가능한 데이터 변환 옵션"""
 
 TRANSFORM_LABELS: Final[dict[str, str]] = {
-    "MoM (전월 대비)": "MoM",
-    "QoQ (전분기 대비)": "QoQ",
-    "YoY (전년 동기 대비)": "YoY",
-    "지수화 (기준=100)": "Index"
+    "MoM": "MoM",
+    "QoQ": "QoQ",
+    "YoY": "YoY",
+    "Indexed (Base=100)": "Index",
 }
-"""변환 유형의 짧은 라벨 (차트 범례용)"""
 
 # ============================================================
-# 카테고리 설정
+# Category Configuration
 # ============================================================
 
-DEFAULT_CATEGORIES: Final[list[str]] = ["금리", "물가", "고용", "경기", "기타"]
-"""기본 차트 분류 카테고리"""
+DEFAULT_CATEGORIES: Final[list[str]] = [
+    "Rates", "Inflation", "Employment", "Activity", "Other"
+]
 
 # ============================================================
-# 데이터 소스 정보
+# Data Source Information
 # ============================================================
 
 DATA_SOURCES: Final[list[str]] = ["FRED", "ECOS", "BLS"]
-"""지원되는 데이터 소스 목록"""
+
+# ============================================================
+# Chart Type & Layout Options
+# ============================================================
+
+CHART_TYPE_OPTIONS: Final[list[str]] = ["Line", "Line + Marker", "Bar"]
+
+LAYOUT_OPTIONS: Final[list[str]] = ["1 Column", "2 Columns", "3 Columns"]
+
+LAYOUT_COLS_MAP: Final[dict[str, int]] = {
+    "1 Column": 1,
+    "2 Columns": 2,
+    "3 Columns": 3,
+}
+
+# ============================================================
+# Migration Mappings (Korean -> English)
+# ============================================================
+
+KOREAN_TO_ENGLISH_TRANSFORMS: Final[dict[str, str]] = {
+    "원 데이터": "Raw Data",
+    "지수화 (기준=100)": "Indexed (Base=100)",
+    "MoM (전월 대비)": "MoM",
+    "QoQ (전분기 대비)": "QoQ",
+    "YoY (전년 동기 대비)": "YoY",
+}
+
+KOREAN_TO_ENGLISH_CHART_TYPES: Final[dict[str, str]] = {
+    "라인": "Line",
+    "라인+마커": "Line + Marker",
+    "막대": "Bar",
+}
+
+KOREAN_TO_ENGLISH_CATEGORIES: Final[dict[str, str]] = {
+    "금리": "Rates",
+    "물가": "Inflation",
+    "고용": "Employment",
+    "경기": "Activity",
+    "기타": "Other",
+    "심리": "Sentiment",
+    "통화": "Money Supply",
+    "환율": "FX",
+    "무역": "Trade",
+    "실업": "Unemployment",
+    "JOLTS": "JOLTS",
+    "임금": "Wages",
+    "생산성": "Productivity",
+    "생산자물가": "PPI",
+}
